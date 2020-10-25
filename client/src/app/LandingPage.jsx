@@ -5,6 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
+import Buttons from '../components/Buttons';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
@@ -12,13 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-  },
-  buttons: {
-    marginTop: theme.spacing(3),
-    textAlign: 'center',
-  },
-  button: {
-    margin: theme.spacing(1),
   },
 }));
 
@@ -41,7 +36,7 @@ const LandingPage = () => {
           <Typography align="center" gutterBottom>
             Start by creating or joining a session.
           </Typography>
-          <div className={classes.buttons}>
+          <Buttons>
             <Button
               className={classes.button}
               color="primary"
@@ -53,7 +48,7 @@ const LandingPage = () => {
             <Button className={classes.button} size="large" variant="contained">
               Join
             </Button>
-          </div>
+          </Buttons>
         </Paper>
       </Grid>
     </Grid>
