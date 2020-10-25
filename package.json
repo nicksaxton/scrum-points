@@ -1,0 +1,23 @@
+{
+  "name": "scrum-points",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicksaxton/scrum-points.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicksaxton/scrum-points/issues"
+  },
+  "homepage": "https://github.com/nicksaxton/scrum-points#readme"
+}
