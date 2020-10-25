@@ -14,7 +14,20 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         body: {
+          animation: 'gradient 15s ease infinite',
           background: 'linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);',
+          backgroundSize: '400% 400%',
+        },
+        '@keyframes gradient': {
+          '0%': {
+            backgroundPosition: '0% 50%',
+          },
+          '50%': {
+            backgroundPosition: '100% 50%',
+          },
+          '100%': {
+            backgroundPosition: '0% 50%',
+          },
         },
       },
     },
