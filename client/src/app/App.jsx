@@ -33,7 +33,7 @@ const App = () => {
       justify="center"
       spacing={2}
     >
-      <Grid item xs={12} lg={4}>
+      <Grid item xs={12} sm={4}>
         <Paper className={classes.paper} elevation={3} padding={2}>
           <Typography align="center" gutterBottom variant="h3">
             Scrum Points
