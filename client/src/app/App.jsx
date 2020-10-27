@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
+import CreateSession from '../features/sessions/CreateSession';
 import LandingPage from './LandingPage';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +36,9 @@ const App = () => {
           </Typography>
           <Router>
             <Switch>
-              <Route path="/session/create"></Route>
+              <Route path="/session/create">
+                <CreateSession />
+              </Route>
               <Route path="/session/join"></Route>
               <Route path="/session/:sessionCode"></Route>
               <Route path="/">
