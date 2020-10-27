@@ -3,7 +3,7 @@ import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(3.5),
     textAlign: 'center',
     '& > *': {
       margin: theme.spacing(1),

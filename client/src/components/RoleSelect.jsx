@@ -33,14 +33,16 @@ const roles = {
   },
 };
 
-const RoleSelect = ({ onSelectRole, selectedRole }) => {
+const RoleSelect = ({ error, onSelectRole, selectedRole }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       {Object.keys(roles).map((role) => (
         <Chip
-          color={selectedRole === role ? 'primary' : 'default'}
+          color={
+            selectedRole === role ? 'primary' : error ? 'secondary' : 'default'
+          }
           key={roles[role].shortName}
           label={roles[role].longName}
           variant={selectedRole === role ? 'default' : 'outlined'}

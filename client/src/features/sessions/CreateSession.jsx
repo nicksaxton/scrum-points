@@ -55,12 +55,11 @@ const CreateSession = () => {
           <Typography align="center" color={invalidRole ? 'error' : 'initial'}>
             Select your role below
           </Typography>
-          {invalidRole && (
-            <Typography align="center" color="error" variant="body2">
-              You must select a role to continue.
-            </Typography>
-          )}
-          <RoleSelect selectedRole={selectedRole} onSelectRole={onSelectRole} />
+          <RoleSelect
+            error={invalidRole}
+            selectedRole={selectedRole}
+            onSelectRole={onSelectRole}
+          />
           <Buttons>
             <Button color="primary" type="submit" variant="contained">
               Create
