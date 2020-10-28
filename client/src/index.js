@@ -15,7 +15,8 @@ const theme = createMuiTheme({
       '@global': {
         body: {
           animation: 'gradient 15s ease infinite',
-          background: 'linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);',
+          background:
+            'radial-gradient( circle farthest-corner at 22.4% 21.7%,  rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% )',
           backgroundSize: '400% 400%',
         },
         '@keyframes gradient': {

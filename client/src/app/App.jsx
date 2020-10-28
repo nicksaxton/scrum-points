@@ -6,6 +6,7 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import CreateSession from '../features/sessions/CreateSession';
+import JoinSession from '../features/sessions/JoinSession';
 import LandingPage from './LandingPage';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +40,9 @@ const App = () => {
               <Route path="/session/create">
                 <CreateSession />
               </Route>
-              <Route path="/session/join"></Route>
+              <Route path="/session/join">
+                <JoinSession />
+              </Route>
               <Route path="/session/:sessionCode"></Route>
               <Route path="/">
                 <LandingPage />
