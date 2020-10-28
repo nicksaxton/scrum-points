@@ -5,10 +5,12 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Buttons from '../../components/Buttons';
 import RoleSelect from '../../components/RoleSelect';
+
+import socket from '../../socket';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -21,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CreateSession = () => {
   const { errors, handleSubmit, register } = useForm();
+  const history = useHistory();
   const classes = useStyles();
 
   const [invalidRole, setInvalidRole] = useState(false);
@@ -34,7 +37,16 @@ const CreateSession = () => {
   const onSubmit = (values) => {
     if (!selectedRole) {
       setInvalidRole(true);
+      return;
     }
+
+    socket.emit(
+      'create session',
+      { name: values.name, role: selectedRole },
+      (sessionCode) => {
+        history.push(`/session/${sessionCode}`);
+      }
+    );
   };
 
   return (
