@@ -7,6 +7,10 @@ const http = require('http').createServer(app);
 
 const io = require('socket.io')(http);
 
+io.on('connection', (socket) => {
+  console.log('Client connected');
+});
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('*', (req, res) => {

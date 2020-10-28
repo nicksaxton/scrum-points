@@ -9,6 +9,8 @@ import CreateSession from '../features/sessions/CreateSession';
 import JoinSession from '../features/sessions/JoinSession';
 import LandingPage from './LandingPage';
 
+import useSocket from '../hooks/useSocket';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
@@ -21,6 +23,8 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
+
+  useSocket();
 
   return (
     <Grid
