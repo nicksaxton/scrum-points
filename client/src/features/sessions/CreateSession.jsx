@@ -12,9 +12,10 @@ import RoleSelect from '../../components/RoleSelect';
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
+    width: '100%',
+  },
+  input: {
+    marginBottom: theme.spacing(1.5),
   },
 }));
 
@@ -44,6 +45,7 @@ const CreateSession = () => {
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
           <TextField
+            className={classes.input}
             error={!!errors.name}
             fullWidth
             helperText={errors.name?.message}
@@ -52,7 +54,10 @@ const CreateSession = () => {
             margin="normal"
             name="name"
           />
-          <Typography align="center" color={invalidRole ? 'error' : 'initial'}>
+          <Typography
+            color={invalidRole ? 'error' : 'initial'}
+            variant="caption"
+          >
             Select your role below
           </Typography>
           <RoleSelect

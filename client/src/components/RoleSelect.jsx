@@ -7,9 +7,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    marginTop: theme.spacing(0.5),
     '& > *': {
       margin: theme.spacing(0.5),
+    },
+    '& > *:first-child': {
+      marginLeft: 0,
     },
   },
 }));
