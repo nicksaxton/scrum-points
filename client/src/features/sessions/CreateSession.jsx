@@ -40,13 +40,12 @@ const CreateSession = () => {
       return;
     }
 
-    socket.emit(
-      'create session',
-      { name: values.name, role: selectedRole },
-      (sessionCode) => {
-        history.push(`/session/${sessionCode}`);
-      }
-    );
+    window.sessionStorage.setItem('name', values.name);
+    window.sessionStorage.setItem('role', selectedRole);
+
+    socket.emit('create session', null, (sessionCode) => {
+      history.push(`/session/${sessionCode}`);
+    });
   };
 
   return (
