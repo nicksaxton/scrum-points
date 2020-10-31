@@ -1,4 +1,6 @@
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import Alert from '@material-ui/lab/Alert';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
@@ -41,7 +43,15 @@ const Session = () => {
     );
   }
 
-  return <div>Session</div>;
+  return (
+    <Grid container>
+      <Grid item xs={12}>
+        <Typography align="center" gutterBottom variant="h5">
+          Session {sessionCode}
+        </Typography>
+      </Grid>
+    </Grid>
+  );
 };
 
 export default Session;
