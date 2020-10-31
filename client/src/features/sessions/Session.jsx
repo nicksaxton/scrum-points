@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Alert from '@material-ui/lab/Alert';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 import socket from '../../socket';
 
 const Session = () => {
+  const history = useHistory();
   const { sessionCode } = useParams();
+
+  const [invalidSession, setInvalidSession] = useState(false);
 
   useEffect(() => {
     const name = window.sessionStorage.getItem('name');
@@ -13,9 +18,28 @@ const Session = () => {
     socket.on('refresh', (data) => console.log(data));
 
     socket.emit('join session', { name, role, sessionCode }, () => {
-      console.log('Invalid session');
+      setInvalidSession(true);
     });
   }, [sessionCode]);
+
+  if (invalidSession) {
+    return (
+      <Alert
+        action={
+          <Button
+            color="inherit"
+            size="small"
+            onClick={() => history.push('/')}
+          >
+            Go Back
+          </Button>
+        }
+        severity="error"
+      >
+        Session {sessionCode} does not exist.
+      </Alert>
+    );
+  }
 
   return <div>Session</div>;
 };
