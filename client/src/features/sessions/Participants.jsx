@@ -22,8 +22,9 @@ const Participants = ({ participants }) => {
   const classes = useStyles();
 
   const sortedParticipants = useMemo(() => {
-    return Object.values(participants).sort((a, b) =>
-      a.name.localeCompare(b.name)
+    return (
+      participants &&
+      Object.values(participants).sort((a, b) => a.name.localeCompare(b.name))
     );
   }, [participants]);
 
