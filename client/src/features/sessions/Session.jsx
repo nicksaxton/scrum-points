@@ -5,6 +5,8 @@ import Alert from '@material-ui/lab/Alert';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
+import Participants from './Participants';
+
 import socket from '../../socket';
 
 const Session = () => {
@@ -12,17 +14,27 @@ const Session = () => {
   const { sessionCode } = useParams();
 
   const [invalidSession, setInvalidSession] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [roomData, setRoomData] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+
     const name = window.sessionStorage.getItem('name');
     const role = window.sessionStorage.getItem('role');
 
-    socket.on('refresh', (data) => console.log(data));
+    socket.on('refresh', (data) => setRoomData(data));
 
     socket.emit('join session', { name, role, sessionCode }, () => {
       setInvalidSession(true);
     });
+
+    setLoading(false);
   }, [sessionCode]);
+
+  if (loading && !roomData) {
+    return null;
+  }
 
   if (invalidSession) {
     return (
@@ -49,6 +61,7 @@ const Session = () => {
         <Typography align="center" gutterBottom variant="h5">
           Session {sessionCode}
         </Typography>
+        <Participants participants={roomData?.participants} />
       </Grid>
     </Grid>
   );

@@ -2,6 +2,8 @@ import Chip from '@material-ui/core/Chip';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import React from 'react';
 
+import roles from '../roles';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     alignItems: 'center',
@@ -16,25 +18,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-const roles = {
-  DEVELOPER: {
-    longName: 'Developer',
-    shortName: 'DEV',
-  },
-  PRODUCT_OWNER: {
-    longName: 'Product Owner',
-    shortName: 'PO',
-  },
-  QA: {
-    longName: 'QA',
-    shortName: 'QA',
-  },
-  SCRUM_MASTER: {
-    longName: 'Scrum Master',
-    shortName: 'SM',
-  },
-};
 
 const RoleSelect = ({ error, onSelectRole, selectedRole }) => {
   const classes = useStyles();
